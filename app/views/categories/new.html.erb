@@ -1,0 +1,19 @@
+<h1> Create a new category </h1>
+
+<div class="add-category-form-container">
+    <%= form_with model: @category, local: true do |form| %>
+        <div class="field">
+            <%= form.label :name %><br />
+            <%= form.text_field :name, autofocus: true %>
+        </div>
+
+        <div class="field">
+            <%= form.label :icon %><br />
+            <%= form.text_field :icon, placeholder: "ICON URL" %>
+        </div>
+        
+        <div class="actions">
+            <%= form.submit "Create category" %>
+        </div>
+    <% end %>
+</div>
