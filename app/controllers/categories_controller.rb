@@ -14,7 +14,6 @@ class CategoriesController < ApplicationController
     else
       render 'new', status: :unprocessable_entity
     end
-
   end
 
   def new
@@ -28,7 +27,7 @@ class CategoriesController < ApplicationController
   end
 
   private
-  
+
   def category_params
     params.require(:category).permit(:name)
   end

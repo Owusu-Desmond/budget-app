@@ -1,7 +1,7 @@
 class RecordsController < ApplicationController
-  before_action :set_category, only: [:index, :new, :create, :destroy]
+  before_action :set_category, only: %i[index new create destroy]
   def index
-    @records = Record.all.order("created_at DESC")
+    @records = Record.all.order('created_at DESC')
   end
 
   def new
@@ -30,7 +30,7 @@ class RecordsController < ApplicationController
     params.require(:record).permit(:name, :amount)
   end
 
-  private 
+  private
 
   def set_category
     @category = Category.find(params[:category_id])
