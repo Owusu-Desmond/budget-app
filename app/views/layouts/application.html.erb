@@ -13,6 +13,52 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <% if controller_name == "categories" %>
+              <%= link_to root_path do %>
+                <i class="fas fa-arrow-left"></i>
+            <% end %>
+            <% elsif controller_name == "records" %>
+              <%= link_to categories_path do %>
+                <i class="fas fa-arrow-left"></i>
+            <% end %>
+            <% else %> 
+              <%= link_to root_path do %>
+                <i class="fas fa-bars"></i>
+            <% end %>
+            <% end %>
+          </li>
+          <li>
+            <% case controller_name %>
+              <% when "categories" %>
+                <p>Categories</p>
+              <% when "records" %>
+                <p>Transactions</p>
+              <% when "sessions" %>
+                <p>Login</p>
+              <% when "registrations" %>
+                <p>Signup</p>
+              <% else %>
+                <p>BudgetApp</p>
+            <% end %>
+          </li>
+          <li>
+            <% if user_signed_in? %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt"></i>
+            <% end %>
+            <% else %>
+              <%= link_to new_user_session_path do %>
+                <i class="fas fa-sign-in-alt"></i>
+            <% end %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
