@@ -1,22 +1,32 @@
-<h1>Transactions</h1>
+<div class="total-transactions-and-total-amount">
+    <p>Amount Spent: </p>
+    <p><b>$<%= @records.sum(:amount) %></b></p>
+</div>
 
 <div class="transactions-container">
     <% if @records.empty? %>
-        <p>You don't have any transactions yet. Create one!</p>
+        <p class="empty-transactions">You don't have any transactions yet. Create one!</p>
     <% else %>
         <% @records.each do |record| %>
-            <div class="transaction">
+            <div class="transaction-card">
                 <div class="transaction-info">
                     <p><%= record.name %></p>
-                    <p><%= record.created_at.strftime("%d %B %Y") %></p>
+                    <p>
+                        <i class="fas fa-calendar-alt"></i>
+                        <%= record.created_at.strftime("%d %b %Y") %>
+                        at <i class="fas fa-clock"></i>
+                        <%= record.created_at.strftime("%H:%M %p") %>
+                     </p>
                 </div>
                 <div class="transaction-actions">
-                    <%= link_to "x", category_record_path(@category, record), data: { turbo_method: :delete } %>
-                    <p><%= record.amount %> €</p>
+                    <%= link_to "<i class='fas fa-trash'></i>".html_safe, category_record_path(@category, record), data: { turbo_method: :delete } %>
+                    <p><b>$<%= record.amount %></b></p>
                 </div>
             </div>
         <% end %>
     <% end %>
+    <%= link_to "New transaction", new_category_record_path(@category), class: "new-transactions-button" %>
 </div>
 
-<%= link_to "New transaction", new_category_record_path(@category), class: "button" %>
+
+
