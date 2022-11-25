@@ -20,6 +20,12 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def show
+    @category = Category.includes(:records).find(params[:id])
+    @records = @category.records.order(created_at: :desc)
+    puts @records
+  end
+
   def distroy
     @category = Category.find(params[:id])
     @category.destroy

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_005214) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_192349) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,13 +23,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_005214) do
     t.index ["author_id"], name: "index_categories_on_author_id"
   end
 
-  create_table "record_categories", force: :cascade do |t|
+  create_table "category_records", force: :cascade do |t|
     t.bigint "record_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_record_categories_on_category_id"
-    t.index ["record_id"], name: "index_record_categories_on_record_id"
+    t.index ["category_id"], name: "index_category_records_on_category_id"
+    t.index ["record_id"], name: "index_category_records_on_record_id"
   end
 
   create_table "records", force: :cascade do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_005214) do
   end
 
   add_foreign_key "categories", "users", column: "author_id"
-  add_foreign_key "record_categories", "categories"
-  add_foreign_key "record_categories", "records"
+  add_foreign_key "category_records", "categories"
+  add_foreign_key "category_records", "records"
   add_foreign_key "records", "users", column: "author_id"
 end

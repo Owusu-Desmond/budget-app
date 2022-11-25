@@ -29,34 +29,34 @@ $secondary-color: #5fb524;
 $tertiary-color: #434c55;
 
 body {
-  background-color: #f0f2f1;;
+  background-color: #f0f2f1;
 }
 
 nav {
-    background-color: $primary-color;
-    padding: 15px 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background-color: $primary-color;
+  padding: 15px 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    justify-content: space-between;
-} 
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  justify-content: space-between;
+}
 
 nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 40px;
-    font-weight: 700;
-    padding: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 0 10px;
 }
 
 nav p {
-    color: #fff;
-    font-size: 30px;
-    font-weight: 600;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 h1 {
@@ -71,7 +71,7 @@ h1 {
   align-items: center;
   padding: 50px 0;
   gap: 30px;
-  margin: 30px; 
+  margin: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -109,7 +109,7 @@ h1 {
 }
 
 .login-link:hover {
-  background-color: #1866c0
+  background-color: #1866c0;
 }
 
 .my-categories-link {
@@ -162,7 +162,7 @@ h1 {
   color: $tertiary-color;
 }
 
-.category-info a{
+.category-info a {
   font-weight: 600;
   font-size: 30px;
   text-decoration: none;
@@ -181,14 +181,14 @@ h1 {
   padding: 10px 20px;
 }
 
-.category-actions a{
+.category-actions a {
   color: red;
   font-size: 20px;
 }
 
 // forms
 
-.form-container form{
+.form-container form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -293,7 +293,7 @@ input[type="submit"] {
   gap: 20px;
 }
 
-.transaction-actions a{
+.transaction-actions a {
   color: red;
   font-size: 20px;
 }

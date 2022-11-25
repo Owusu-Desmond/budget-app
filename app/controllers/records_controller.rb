@@ -1,11 +1,9 @@
 class RecordsController < ApplicationController
-  before_action :set_category, only: %i[index new create destroy]
-  def index
-    @records = Record.all.order('created_at DESC')
-  end
+  before_action :set_category, only: %i[new create destroy]
 
   def new
-    @record = Record.new
+    @category = Category.includes(:category_records).find(params[:category_id])
+    @record = @category.records.new
   end
 
   def create
@@ -21,9 +19,9 @@ class RecordsController < ApplicationController
   end
 
   def destroy
-    @record = Record.find(params[:id])
-    @record.destroy
-    redirect_to category_records_path(@category)
+    @categories = Category.includes(:category_records).find(params[:category_id])
+    @records = @category.records.includes(:category_records).find(params[:id])
+    @records.destroy
   end
 
   def record_params
