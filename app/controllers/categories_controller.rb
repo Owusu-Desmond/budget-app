@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_category, only: %i[destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.where(author_id: current_user.id)
   end
 
   def create
@@ -20,14 +21,7 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
-  def show
-    @category = Category.includes(:records).find(params[:id])
-    @records = @category.records.order(created_at: :desc)
-    puts @records
-  end
-
-  def distroy
-    @category = Category.find(params[:id])
+  def destroy
     @category.destroy
     redirect_to categories_path
   end
@@ -35,6 +29,10 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :icon)
+  end
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 end

@@ -257,6 +257,14 @@ input[type="submit"] {
   color: $tertiary-color;
 }
 
+.field p {
+  text-align: center;
+  margin: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: $tertiary-color;
+}
+
 .transaction-info p:first-child {
   font-weight: 600;
   font-size: 30px;
@@ -296,4 +304,18 @@ input[type="submit"] {
 .transaction-actions a {
   color: red;
   font-size: 20px;
+}
+
+.categories-checkboxes {
+  display: flex;
+  font-size: 20px;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: center;
+  gap: 40px;
+}
+
+.category-checkbox {
+  display: flex;
+  gap: 10px;
 }

@@ -3,6 +3,7 @@ class Category < ApplicationRecord
   has_many :category_records, dependent: :destroy
   has_many :records, through: :category_records
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 1, maximum: 25 }
   validates :author_id, presence: true
+  validates :icon, presence: true
 end

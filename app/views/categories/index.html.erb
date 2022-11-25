@@ -17,7 +17,7 @@
                 <% end %>
             </div>
             <div class="category-info">
-                <%= link_to category.name, category_path(category) %>
+                <%= link_to category.name, category_records_path(category) %>
                 <p>
                     <i class="fas fa-calendar-alt"></i>
                     <%= category.created_at.strftime("%d %b %Y") %>

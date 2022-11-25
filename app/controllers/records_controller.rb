@@ -1,13 +1,21 @@
 class RecordsController < ApplicationController
-  before_action :set_category, only: %i[new create destroy]
+  before_action :set_category, only: %i[new create index destroy]
 
   def new
-    @category = Category.includes(:category_records).find(params[:category_id])
-    @record = @category.records.new
+    @categories = Category.where(author_id: current_user.id)
+    @record = Record.new
+  end
+
+  def index
+    @records = Category.find(params[:category_id]).records.order(created_at: :desc)
+    @total_amount = @records.sum(:amount)
   end
 
   def create
     @record = Record.new(record_params)
+    @record.author = current_user
+    @categories = Category.where(id: category_params['category_ids'])
+    @record.categories << @categories
     @record.author = current_user
 
     if @record.save
@@ -26,6 +34,10 @@ class RecordsController < ApplicationController
 
   def record_params
     params.require(:record).permit(:name, :amount)
+  end
+
+  def category_params
+    params.require(:record).permit(category_ids: [])
   end
 
   private
