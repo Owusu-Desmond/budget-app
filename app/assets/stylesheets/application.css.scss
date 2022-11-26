@@ -181,6 +181,19 @@ h1 {
   padding: 10px 20px;
 }
 
+.category-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.category-actions p {
+  font-size: 23px;
+  font-weight: 600;
+  color: $tertiary-color;
+}
+
 .category-actions a {
   color: red;
   font-size: 20px;

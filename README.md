@@ -72,6 +72,11 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
+<!-- link to presentation -->
+
+## 💻 Presentation link <a name="presentation-link"></a>
+
+[Presentation link](https://www.loom.com/share/dc0eb1ed6c434fdc854c11a618a790b2)
 
 - [Live Demo Link](https://transactionkeeper.onrender.com)
 
