@@ -2,9 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     user ||= User.new
-
 
     can :read, Category, author_id: user.id
     can :create, Category
