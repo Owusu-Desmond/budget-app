@@ -75,11 +75,11 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 <!-- link to presentation -->
 
+- [Live Demo Link](https://transactionkeeper.onrender.com)
+
 ## 💻 Presentation link <a name="presentation-link"></a>
 
-[Presentation link](https://www.loom.com/share/dc0eb1ed6c434fdc854c11a618a790b2)
-
-- [Live Demo Link](https://transactionkeeper.onrender.com)
+- [Presentation link](https://www.loom.com/share/b0641383142b4428bb2a5011f26af2ff)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
