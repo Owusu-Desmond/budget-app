@@ -7,6 +7,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [💻 Presentation](#presentation-link)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -227,7 +228,8 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank everyone who has inspired me to build this project.
+I would like to thanks [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) the author of the original design,
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
