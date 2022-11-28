@@ -1,0 +1,29 @@
+<h1>New Transaction</h1>
+
+<div class="form-container">
+    <%= form_with(model: [@category, @record]) do |form| %>
+        <div class="field">
+            <%= form.text_field :name, autofocus: true, placeholder: "Transaction Name" %>
+        </div>
+
+        <div class="field">
+            <%= form.number_field :amount, step: 0.01, placeholder: "Transaction Amount" %>
+        </div>
+
+        <div class="field">
+            <p>Select at least one category you want to add this transaction to:</p>
+            <div class="categories-checkboxes">
+                <% @categories.each do |category| %>
+                    <div class="category-checkbox">
+                        <%= form.check_box :category_ids, { multiple: true }, category.id, class: "category-checkbox-input" %>
+                        <%= form.label :category_ids, category.name %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="actions">
+            <%= form.submit "Create transaction" %>
+        </div>
+    <% end %>
+</div>

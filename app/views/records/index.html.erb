@@ -1,0 +1,32 @@
+<div class="total-transactions-and-total-amount">
+    <p>Amount Spent: </p>
+    <p><b>$<%= @records.sum(:amount) %></b></p>
+</div>
+
+<div class="transactions-container">
+    <% if @records.empty? %>
+        <p class="empty-transactions">You don't have any transactions yet. Create one!</p>
+    <% else %>
+        <% @records.each do |record| %>
+            <div class="transaction-card">
+                <div class="transaction-info">
+                    <p><%= record.name %></p>
+                    <p>
+                        <i class="fas fa-calendar-alt"></i>
+                        <%= record.created_at.strftime("%d %b %Y") %>
+                        at <i class="fas fa-clock"></i>
+                        <%= record.created_at.strftime("%H:%M %p") %>
+                     </p>
+                </div>
+                <div class="transaction-actions">
+                    <%= link_to "<i class='fas fa-trash'></i>".html_safe, category_record_path(@category, record), data: { turbo_method: :delete } %>
+                    <p><b>$<%= record.amount %></b></p>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+    <%= link_to "New transaction", new_category_record_path, class: "new-transactions-button" %>
+</div>
+
+
+

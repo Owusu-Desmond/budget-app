@@ -1,0 +1,37 @@
+<div class="total-categories">
+  <p>Total categories: </p>
+  <p><%= @categories.count %></p>
+</div>
+
+<div class="categories-container">
+    <% if @categories.empty? %>
+        <p class="empty-categories">You don't have any categories yet. Create one!</p>
+    <% else %>
+    <% @categories.each do |category| %>
+        <div class="category-card">
+            <div class="category-icon">
+                <% if category.icon %>
+                    <%= image_tag category.icon, class: "category-icon" %>
+                <% else %>
+                    <i class="fas fa-folder"></i>
+                <% end %>
+            </div>
+            <div class="category-info">
+                <%= link_to category.name, category_records_path(category) %>
+                <p>
+                    <i class="fas fa-calendar-alt"></i>
+                    <%= category.created_at.strftime("%d %b %Y") %>
+                    at <i class="fas fa-clock"></i>
+                    <%= category.created_at.strftime("%H:%M %p") %>
+                </p>
+            </div>
+            <div class="category-actions">
+                <%= link_to "<i class='fas fa-trash'></i>".html_safe, category_path(category), data: { turbo_method: :delete } %>
+                <p>$<%= category.records.sum(:amount) %></p>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+
+<%= link_to "New category", new_category_path, class: "new-category-button" %>
+</div>
